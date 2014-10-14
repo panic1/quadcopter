@@ -5,8 +5,7 @@ This project will be set up from the ground up to develop the software for a qua
 
 For the first version, to get to a flying quadcopter we'll focus on the following parts:
 * Flight controller board
-  * Linux OS
-  * Application and drivers
+  * Application and libraries
 * Remote control application
   * Running on a Linux desktop
 
