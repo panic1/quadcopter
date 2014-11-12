@@ -14,5 +14,3 @@ In future iteration we are planning to add:
 * More telemetry support
 * Camera support
 * GPS support
-
-Since we'll be making 2 quadcopters to play with, we've chosen to base one design on the Raspberry Pi and the other one the Beaglebone Black hardware platform.  Hardware and software design choices will need to consider the difficulties of developing a common code base for two distint hardware platforms.
