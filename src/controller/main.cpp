@@ -10,8 +10,8 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "BlackPWM.h"
-#include "BlackI2C.h"
+#include "BlackPWM/BlackPWM.h"
+#include "BlackI2C/BlackI2C.h"
 
 using namespace std;
 
