@@ -59,7 +59,7 @@ bool PWM_beagleboneblack::enable(void)
 	return true;
 }
 
-bool PWM_beagleboneblack::set_period_ns(unsigned int period)
+bool PWM_beagleboneblack::set_period_ns(uint32_t period)
 {
 	period_ns = period;
 
@@ -73,7 +73,7 @@ bool PWM_beagleboneblack::set_period_ns(unsigned int period)
 	return true;
 }
 
-bool PWM_beagleboneblack::set_duty_cycle_ns(unsigned int duty)
+bool PWM_beagleboneblack::set_duty_cycle_ns(uint32_t duty)
 {
 	if (duty > period_ns)
 	{
@@ -140,7 +140,7 @@ bool PWM_beagleboneblack::config_pin(bool set_to_default /* = false */)
 	std::ostringstream cmd;
 	cmd << "/usr/local/bin/config-pin " << PWM_BBB_ADDRINFO[pin_number].pin_name << (set_to_default? " default": " pwm");
 
-	int rc = std::system(cmd.str().c_str());
+	int rc = system(cmd.str().c_str());
 	if (rc)
 	{
 		std::cerr << "Setting config pin for " << PWM_BBB_ADDRINFO[pin_number].pin_name << " to "  << (set_to_default? "default": "pwm") << " failed." << std::endl;

@@ -8,6 +8,7 @@
 #ifndef HAL_PWM_PWM_HPP_
 #define HAL_PWM_PWM_HPP_
 
+#include <stdint.h>
 
 class PWM
 {
@@ -16,8 +17,8 @@ public:
 	virtual ~PWM() {};
 
 	virtual bool enable(void) = 0;
-	virtual bool set_period_ns(unsigned int period) = 0;
-	virtual bool set_duty_cycle_ns(unsigned int duty) = 0;
+	virtual bool set_period_ns(uint32_t period) = 0;
+	virtual bool set_duty_cycle_ns(uint32_t duty) = 0;
 
 protected:
 	int pin_number;

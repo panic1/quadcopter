@@ -19,8 +19,8 @@ public:
 	virtual ~PWM_beagleboneblack();
 
 	virtual bool enable(void);
-	virtual bool set_period_ns(unsigned int period);
-	virtual bool set_duty_cycle_ns(unsigned int duty);
+	virtual bool set_period_ns(uint32_t period);
+	virtual bool set_duty_cycle_ns(uint32_t duty);
 
 private:
 	bool search_pwmchip_number();
@@ -36,8 +36,8 @@ private:
 	bool exported;
 	bool enabled;
 
-	unsigned int period_ns;
-	unsigned int duty_cycle_ns;
+	uint32_t period_ns;
+	uint32_t duty_cycle_ns;
 };
 
 
