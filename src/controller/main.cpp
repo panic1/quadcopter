@@ -111,9 +111,6 @@ X axis enable. Default value: 1 (0: X axis disabled, 1: X axis enabled)
  *  ZDA Z axis new data available. Default value: 0 (0: a new data for the Z-axis is not yet available, 1: a new data for the Z-axis is available)
  *  YDA Y axis new data available. Default value: 0 (0: a new data for the Y-axis is not yet available, 1: a new data for the Y-axis is available)
  *  XDA X axis new data available. Default value: 0 (0: a new data for the X-axis is not yet available, 1: a new data for the X-axis is available)*/
-    int StatusReg_Addr = 0x27;
-    uint8_t statusReg = myI2c.readByte(StatusReg_Addr);
-
 
     // read-write register
 //    uint8_t powerCtl_Addr   = 0x2D;
@@ -122,39 +119,39 @@ X axis enable. Default value: 1 (0: X axis disabled, 1: X axis enabled)
 //    uint8_t offsetZ_Addr    = 0x20;
 
     // read only register
+//    Yeti:
     uint8_t axisX0_Addr     = 0x28;
 //    OUT_X_L_A (28h), OUT_X_H_A (29h)
 //    OUT_Y_L_A (2Ah), OUT_Y_H_A (2Bh)
 //	  OUT_Z_L_A (2Ch), OUT_Z_H_A (2Dh)
 
-//	uint8_t axisX0_Addr     = 0x32;
+//	  Panic1:
+//	  uint8_t axisX0_Addr     = 0x32;
 //    uint8_t axisX1_Addr     = 0x33;
 //    uint8_t axisY0_Addr     = 0x34;
 //    uint8_t axisY1_Addr     = 0x35;
 //    uint8_t axisZ0_Addr     = 0x36;
 //    uint8_t axisZ1_Addr     = 0x37;
 
-    // set bit
+    // set bit (Panic1)
 //    uint8_t measureMode     = 0x08;
 
-//    uint8_t powerCtlReg     = myI2c.readByte(powerCtl_Addr);
+//    uint8_t powerCtlReg     = myI2c.readByte(powerCtl_Addr); (Panic1)
 //    std::cout << "Power Ctrl's current value: " << std::hex << (int)powerCtlReg << std::dec << std::endl;
 
-//    powerCtlReg |= (measureMode);      //                      ___ ___ ___ ___|___ ___ ___ ___
+//    powerCtlReg |= (measureMode);    //                      ___ ___ ___ ___|___ ___ ___ ___
                                        // powerCtlReg:        |_x_|_x_|_x_|_x_|_x_|_x_|_x_|_x_|
                                        // measureMode:        |_0_|_0_|_0_|_0_|_1_|_0_|_0_|_0_|
                                        //                      ___ ___ ___ ___|___ ___ ___ ___ or these
                                        // result:             |_x_|_x_|_x_|_x_|_1_|_x_|_x_|_x_|
-
 //    myI2c.writeByte(powerCtl_Addr, powerCtlReg);
-
 //    std::cout << "Power Ctrl's new value: " << std::hex << (int)powerCtlReg << std::dec << std::endl;
 
     uint8_t values[6];
 
     while (true)
     {
-    	// BLCVOK READ DOES NOT WORK ON YETI'S BEAGLE SENSOR
+    	// BLOCK READ DOES NOT WORK ON YETI'S BEAGLE SENSOR
     	//myI2c.readBlock(axisX0_Addr, values, sizeof(values));
 
     	values[0] = myI2c.readByte(axisX0_Addr+0);
@@ -173,8 +170,6 @@ X axis enable. Default value: 1 (0: X axis disabled, 1: X axis enabled)
 
     	usleep(20000);
     }
-
-
 }
 
 // register addresses
