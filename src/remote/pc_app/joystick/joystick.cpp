@@ -6,8 +6,9 @@
  *  Based on code of Keith Lanz (http://www.keithlantz.net/2011/10/a-linux-c-joystick-object/)
  */
 
-#include <pthread.h>
 #include "joystick.h"
+
+#include <pthread.h>
 
 cJoystick::cJoystick() {
 	active = false;
