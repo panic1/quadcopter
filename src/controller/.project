@@ -3,7 +3,6 @@
 	<name>Quadcopter control application</name>
 	<comment></comment>
 	<projects>
-		<project>BlackLib</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
