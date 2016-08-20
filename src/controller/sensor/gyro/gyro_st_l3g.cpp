@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <stdlib.h>
 #include "gyro_st_l3g.hpp"
 
 
@@ -15,10 +16,21 @@ Gyro_St_L3g::Gyro_St_L3g(SensorOrientation orientation, I2C* i2c):
 {}
 
 Gyro_St_L3g::~Gyro_St_L3g()
-{}
+{
+	std::cout << "DESTRUCTOR GYRO CALLED" << std::endl;
+
+	free(i2c);
+	i2c = NULL;
+}
 
 bool Gyro_St_L3g::initialize()
 {
+	if ( i2c == NULL )
+	{
+		std::cerr << "I2C class has not been initialized." << std::endl;
+		return false;
+	}
+
 	if( !i2c->open( O_RDWR | O_NONBLOCK ))
 	{
 		std::cerr << "Cannot open i2c device." << std::endl;
@@ -41,6 +53,12 @@ SensorData_XYZ Gyro_St_L3g::get_readout()
 {
 	uint8_t values[6];
 	SensorData_XYZ data;
+
+	if ( i2c == NULL )
+	{
+		std::cerr << "I2C class has not been initialized." << std::endl;
+		return SensorData_XYZ();
+	}
 
 	if( !i2c->open( O_RDWR | O_NONBLOCK ))
 	{
