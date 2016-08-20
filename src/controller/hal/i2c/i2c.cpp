@@ -20,8 +20,6 @@ I2C::I2C(unsigned int bus_number, uint8_t slave_address):
 	std::ostringstream ostr;
 	ostr << "/dev/i2c-" << bus_number;
 	path = ostr.str();
-
-	std::cout << "I2C port path: " <<  path << std::endl;
 }
 
 I2C::~I2C()
