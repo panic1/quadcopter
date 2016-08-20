@@ -1,6 +1,8 @@
 #!/bin/sh
 
 rm -f /var/lib/connman/wifi.config
+connmanctl disable wifi
+connmanctl enable wifi
 
 connmanctl tether wifi off
 connmanctl scan wifi
