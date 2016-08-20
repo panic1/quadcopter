@@ -13,6 +13,12 @@
 
 struct SensorData_XYZ
 {
+	SensorData_XYZ():
+		X(0),
+		Y(0),
+		Z(0)
+	{};
+
 	int32_t X;
 	int32_t Y;
 	int32_t Z;
