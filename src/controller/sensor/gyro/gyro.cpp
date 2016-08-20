@@ -23,7 +23,8 @@ Gyro* Gyro::create_gyro(GyroType type)
 	switch (type)
 	{
 	case gyro_st_l3g:
-		gyro = new Gyro_St_L3g(SensorOrientation(), new I2C(2, 0x69));
+		gyro = new Gyro_St_L3g(SensorOrientation(), new I2C(2, 0x69));  // nicky
+//		gyro = new Gyro_St_L3g(SensorOrientation(), new I2C(2, 0x6B));  // kris
 		break;
 	default:
 		std::cerr << "Unknown type of gyro requested." << std::endl;
