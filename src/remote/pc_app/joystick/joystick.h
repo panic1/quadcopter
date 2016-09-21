@@ -17,7 +17,8 @@
 
 // A new joystick is typicaly set as js2 in the current debian, so for now we keep this as default
 // TODO: make this a setting in the project
-#define JOYSTICK_DEV "/dev/input/js2"
+#define JOYSTICK_DEV "/dev/input/js1"
+//#define JOYSTICK_DEV "/dev/input/js2"
 
 struct joystick_position {
 	float theta, r, x, y;
